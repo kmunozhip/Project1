@@ -7,6 +7,7 @@
         <script type="text/javascript" src="mapdata.js"></script>		
         <script  type="text/javascript" src="worldmap.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             * {
   box-sizing: border-box;
@@ -16,7 +17,7 @@
   background-image: url('/css/searchicon.png');
   background-position: 10px 12px;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 80%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -27,10 +28,10 @@
           background-color: #eee;
           color: #444;
           cursor: pointer;
-          padding: 18px;
+          padding: 10px;
           width: 100%;
           border: none;
-          text-align: left;
+          text-align: center;
           outline: none;
           font-size: 20px;
           transition: 0.4s;
@@ -59,11 +60,34 @@
     ul {
     font:12px "Arial",san-serif;
 }
+
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+
+
 /* h1{
     font: "Arial",san-serif;
 } */
 
+/* form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
 
+form.example button:hover {
+  background: #0b7dda;
+} */
 
 </style>
 
@@ -74,11 +98,20 @@
       <div style = "font-family:arial" >
       <u> <h1 align="center">Infrav's Data and Coverage </h1></u> 
       </div>
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names of countries.." title="Type in a country name">
- 
 
-  <div id="map"></div>
-  
+
+<!-- SEARCH BAR CODE  -->
+<form class="example" action="/action_page.php"></form>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names of countries.." title="Type in a country name">
+      <button id="submit"><i class="fa fa-search"></i></button>
+    </form>
+  <!-- <div id="map"></div> -->
+  <!-- <div style = "font-family:arial" >
+  <h5  align="center">**Countries that are colored and NOT gray are covered by Infranav**</h5>
+</div> -->
+  <img src="mapImage.png" alt="coverageMap" height="450" width="800"class="responsive">
+
+
   <button class="accordion">Sub-Saharan Africa</button>
 <div class="panel">
         <ul style="list-style-type:circle;">
@@ -239,11 +272,41 @@
         }
         </script>
         
+<!-- SEARCH BAR FUNCTION CODE -->
 <script>
 
-var myFunction(){
+
+function myFunction(){
+
+var coveredCountries = ["KENYA","NIGERIA", "ANGOLA","BENIN", "BOTSWANA","BURKINA FASO","BURUNDI","CAMEROON","CHAD","COTE D'IVOIRE","CAR","DRC","EQUATORIAL GUINEA",
+"THE GAMBIA","GABON","GHANA","LESOTHO","MADAGASCAR","MALAWI","MOZAMBIQUE","NAMIBIA","NIGER","CONGO (REP. OF)", "Republic of Congo","RWANDA","SENEGAL","SOMALIA",
+"SOUTH AFRICA","SWAZILAND", "TANZANIA", "TOGO","UGANDA","ZAMBIA","ZIMBABWE","CAPE VERDE","ETHIOPIA","GUINEA","GUINEA-BISSAU","LIBERIA","MALI","MAURITANIA",
+"MAURITIUS","SIERRA LEONE","SOUTH SUDAN","SUDAN","BOLIVIA", "ARGENTINA", "BRAZIL", "COLOMBIA", "ECUADOR", "GUATEMALA", "MEXICO", "NICARAGUA", "PANAMA",
+"PARAGUAY", "PERU", "BELIZE", "CHILE", ">COSTA RICA", "DOMINICAN REPUBLIC","EL SALVADOR", "GUYANA", "HONDURAS", "URUGUAY", "VENEZUELA", "CAMBODIA", "INDONESIA",
+"MALAYSIA", "MONGOLIA", "MYANMAR", "BRUNEI", "LAOS", "PAPUA NEW GUINEA", "PHILIPPINES", "THAILAND", "TAIWAN", "INDONESIA", "JORDAN", "TUNISIA", "EGYPT",
+"MOROCCO", "OMAN", "SAUDI ARABIA", "ALGERIA", "DJIBOUTI", "LIBYA", "UAE","BANGLADESH", "PAKISTAN", "SRI LANKA", "AFGHANISTAN", "INDIA", "NEPAL", "KAZAKHSTAN",
+"TURKEY", "UKRAINE", "UZBEKISTAN", "CYPRUS", "FRENCH GUIANA", "CANADA", "UNITED STATES"];
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+var theButton = document.getElementById("submit");
+var isCovered = false;
+theButton.onclick = function(){
+  for( i = 0; i < coveredCountries.length; i++){
+  if(filter === coveredCountries[i]){
+    isCovered = true;
+  }
+  }
+
+  if(isCovered){
+    alert("COVERED!");
+  }else{
+    alert("COUNTRY IS NOT COVERED!");
+  }
 
 }
+
+}
+
 
 
 </script>
