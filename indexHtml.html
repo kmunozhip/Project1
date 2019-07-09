@@ -101,6 +101,47 @@ form.example button:hover {
 } */
     </style>
 
+    <!-- SEARCH BAR FUNCTION CODE -->
+    <script>
+        function myFunction() {
+
+            var coveredCountries = ["KENYA", "NIGERIA", "ANGOLA", "BENIN", "BOTSWANA", "BURKINA FASO", "BURUNDI", "CAMEROON", "CHAD", "COTE D'IVOIRE", "CAR", "DRC", "EQUATORIAL GUINEA",
+                "THE GAMBIA", "GABON", "GHANA", "LESOTHO", "MADAGASCAR", "MALAWI", "MOZAMBIQUE", "NAMIBIA", "NIGER", "CONGO (REP. OF)", "Republic of Congo", "RWANDA", "SENEGAL", "SOMALIA",
+                "SOUTH AFRICA", "SWAZILAND", "TANZANIA", "TOGO", "UGANDA", "ZAMBIA", "ZIMBABWE", "CAPE VERDE", "ETHIOPIA", "GUINEA", "GUINEA-BISSAU", "LIBERIA", "MALI", "MAURITANIA",
+                "MAURITIUS", "SIERRA LEONE", "SOUTH SUDAN", "SUDAN", "BOLIVIA", "ARGENTINA", "BRAZIL", "COLOMBIA", "ECUADOR", "GUATEMALA", "MEXICO", "NICARAGUA", "PANAMA",
+                "PARAGUAY", "PERU", "BELIZE", "CHILE", "COSTA RICA", "DOMINICAN REPUBLIC", "EL SALVADOR", "GUYANA", "HONDURAS", "URUGUAY", "VENEZUELA", "CAMBODIA", "INDONESIA",
+                "MALAYSIA", "MONGOLIA", "MYANMAR", "BRUNEI", "LAOS", "PAPUA NEW GUINEA", "PHILIPPINES", "THAILAND", "TAIWAN", "INDONESIA", "JORDAN", "TUNISIA", "EGYPT",
+                "MOROCCO", "OMAN", "SAUDI ARABIA", "ALGERIA", "DJIBOUTI", "LIBYA", "UAE", "BANGLADESH", "PAKISTAN", "SRI LANKA", "AFGHANISTAN", "INDIA", "NEPAL", "KAZAKHSTAN",
+                "TURKEY", "UKRAINE", "UZBEKISTAN", "CYPRUS", "FRENCH GUIANA", "CANADA", "UNITED STATES", "US"
+            ];
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            var theButton = document.getElementById("submit");
+            var isCovered = false;
+            theButton.onclick = function() {
+                for (i = 0; i < coveredCountries.length; i++) {
+                    if (filter === coveredCountries[i]) {
+                        isCovered = true;
+                    }
+                }
+
+                if (isCovered) {
+                    //                                        alert("COVERED!");
+                    var result = document.getElementById('result');
+                    result.innerHTML = "<h1 style='background: green; text-align: center; color: white;'>Country is covered!</h1>";
+
+                } else {
+                    //                    alert("COUNTRY IS NOT COVERED!");
+                    var result = document.getElementById('result');
+                    result.innerHTML = "<h1 style='background: red; text-align: center; color: white'>Country is not covered!</h1>";
+                }
+
+            }
+
+        }
+    </script>
+
+
 </head>
 
 <body>
@@ -288,43 +329,6 @@ form.example button:hover {
         </div>
 
     </div>
-
-
-    <!-- SEARCH BAR FUNCTION CODE -->
-    <script>
-        function myFunction() {
-
-            var coveredCountries = ["KENYA", "NIGERIA", "ANGOLA", "BENIN", "BOTSWANA", "BURKINA FASO", "BURUNDI", "CAMEROON", "CHAD", "COTE D'IVOIRE", "CAR", "DRC", "EQUATORIAL GUINEA",
-                "THE GAMBIA", "GABON", "GHANA", "LESOTHO", "MADAGASCAR", "MALAWI", "MOZAMBIQUE", "NAMIBIA", "NIGER", "CONGO (REP. OF)", "Republic of Congo", "RWANDA", "SENEGAL", "SOMALIA",
-                "SOUTH AFRICA", "SWAZILAND", "TANZANIA", "TOGO", "UGANDA", "ZAMBIA", "ZIMBABWE", "CAPE VERDE", "ETHIOPIA", "GUINEA", "GUINEA-BISSAU", "LIBERIA", "MALI", "MAURITANIA",
-                "MAURITIUS", "SIERRA LEONE", "SOUTH SUDAN", "SUDAN", "BOLIVIA", "ARGENTINA", "BRAZIL", "colOMBIA", "ECUADOR", "GUATEMALA", "MEXICO", "NICARAGUA", "PANAMA",
-                "PARAGUAY", "PERU", "BELIZE", "CHILE", "COSTA RICA", "DOMINICAN REPUBLIC", "EL SALVADOR", "GUYANA", "HONDURAS", "URUGUAY", "VENEZUELA", "CAMBODIA", "INDONESIA",
-                "MALAYSIA", "MONGOLIA", "MYANMAR", "BRUNEI", "LAOS", "PAPUA NEW GUINEA", "PHILIPPINES", "THAILAND", "TAIWAN", "INDONESIA", "JORDAN", "TUNISIA", "EGYPT",
-                "MOROCCO", "OMAN", "SAUDI ARABIA", "ALGERIA", "DJIBOUTI", "LIBYA", "UAE", "BANGLADESH", "PAKISTAN", "SRI LANKA", "AFGHANISTAN", "INDIA", "NEPAL", "KAZAKHSTAN",
-                "TURKEY", "UKRAINE", "UZBEKISTAN", "CYPRUS", "FRENCH GUIANA", "CANADA", "UNITED STATES", "US"
-            ];
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            var theButton = document.getElementById("submit");
-            var isCovered = false;
-            theButton.onclick = function() {
-                for (i = 0; i < coveredCountries.length; i++) {
-                    if (filter === coveredCountries[i]) {
-                        isCovered = true;
-                    }
-                }
-
-                if (isCovered) {
-                    alert("COVERED!");
-                } else {
-                    alert("COUNTRY IS NOT COVERED!");
-                    document.getElementById('result')
-                }
-
-            }
-
-        }
-    </script>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
