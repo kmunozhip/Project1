@@ -1,85 +1,90 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="mapdata.js"></script>		
-        <script  type="text/javascript" src="worldmap.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            * {
-  box-sizing: border-box;
-}
+<head>
+    <title>title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="mapdata.js"></script>
+    <script type="text/javascript" src="worldmap.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 80%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #myInput {
+            /*background-image: url('/css/searchicon.png');*/
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 80%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
 
         .accordion {
-          background-color: #eee;
-          color: #444;
-          cursor: pointer;
-          padding: 10px;
-          width: 100%;
-          border: none;
-          text-align: center;
-          outline: none;
-          font-size: 20px;
-          transition: 0.4s;
-          float: right;
-          font-weight: bold;
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 20px;
+            transition: 0.4s;
+            float: right;
+            font-weight: bold;
         }
-        
-        .active, .accordion:hover {
-          background-color: #ccc;
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
         }
-        
+
         .panel {
-          padding: 0 18px;
-          background-color: white;
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.2s ease-out;
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
         }
 
-        li{
-    float: right;
-    width: 30%;
-    }
+        li {
+            float: right;
+            width: 30%;
+        }
 
 
-    ul {
-    font:12px "Arial",san-serif;
-}
+        ul {
+            font: 12px "Arial", san-serif;
+        }
 
 
-.responsive {
-  width: 100%;
-  height: auto;
-}
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
 
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-}
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            /* Red */
+            color: white;
+            margin-bottom: 15px;
+        }
 
-
-/* h1{
+        /* h1{
     font: "Arial",san-serif;
 } */
 
-/* form.example button {
+        /* form.example button {
   float: left;
   width: 20%;
   padding: 10px;
@@ -94,229 +99,250 @@
 form.example button:hover {
   background: #0b7dda;
 } */
+    </style>
 
-</style>
+</head>
 
-    <meta charset="UTF-8">
-    <title>title</title>
-  </head>
-  <body>
-      <div style = "font-family:arial" >
-      <u> <h1 align="center">Infrav's Data and Coverage </h1></u> 
-      </div>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-12">
+                <div style="font-family:arial">
+                    <u>
+                        <h1 align="center">Infrav's Data and Coverage </h1>
+                    </u>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-12">
+                <!-- SEARCH BAR CODE  -->
+                <form class="example">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names of countries.." title="Type in a country name">
+                    <button id="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <span id="result"></span>
+            </div>
+        </div>
 
 
-<!-- SEARCH BAR CODE  -->
-<form class="example" action="/action_page.php"></form>
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names of countries.." title="Type in a country name">
-      <button id="submit"><i class="fa fa-search"></i></button>
-    </form>
-  <!-- <div id="map"></div> -->
-  <!-- <div style = "font-family:arial" >
+
+
+        <!-- <div id="map"></div> -->
+        <!-- <div style = "font-family:arial" >
   <h5  align="center">**Countries that are colored and NOT gray are covered by Infranav**</h5>
 </div> -->
-  <img src="mapImage.png" alt="coverageMap" height="450" width="800"class="responsive">
+
+        <div class="row">
+            <img src="mapImage.png" alt="coverageMap" height="450" width="800" class="responsive">
 
 
-  <button class="accordion">Sub-Saharan Africa</button>
-<div class="panel">
-        <ul style="list-style-type:circle;">
-                <li>Kenya</li>
-                <li>Nigeria</li>
-                <li>Angola</li>
-                <li>Benin</li>
-                <li>Botswana</li>
-                <li>Burkina Faso</li>
-                <li>Burundi</li>
-                <li>Cameroon</li>
-                <li>Chad</li>
-                <li>Cote d'Ivoire</li>
-                <li>CAR</li>
-                <li>DRC</li>
-                <li>Equatorial Guinea</li>
-                <li>The Gambia</li>
-                <li>Gabon</li>
-                <li>Ghana</li>
-                <li>Lesotho</li>
-                <li>Madagascar</li>
-                <li>Malawi</li>
-                <li>Mozambique</li>
-                <li>Namibia</li>
-                <li>Niger</li>
-                <li>Congo (Rep. of)</li>
-                <li>Rwanda</li>
-                <li>Senegal</li>
-                <li>Somalia</li>
-                <li>South Africa</li>
-                <li>Swaziland</li>
-                <li>Tanzania</li>
-                <li>Togo</li>
-                <li>Uganda</li>
-                <li>Zambia</li>
-                <li>Zimbabwe</li>
-                <li>Cape Verde</li>
-                <li>Ethiopia</li>
-                <li>Guinea</li>
-                <li>Guinea-Bissau</li>
-                <li>Liberia</li>
-                <li>Mali</li>
-                <li>Mauritania</li>
-                <li>Mauritius</li>
-                <li>Sierra Leone</li>
-                <li>South Sudan</li>
-                <li>Sudan</li>
-              </ul>
-</div>
+            <button class="accordion">Sub-Saharan Africa</button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Kenya</li>
+                    <li>Nigeria</li>
+                    <li>Angola</li>
+                    <li>Benin</li>
+                    <li>Botswana</li>
+                    <li>Burkina Faso</li>
+                    <li>Burundi</li>
+                    <li>Cameroon</li>
+                    <li>Chad</li>
+                    <li>Cote d'Ivoire</li>
+                    <li>CAR</li>
+                    <li>DRC</li>
+                    <li>Equatorial Guinea</li>
+                    <li>The Gambia</li>
+                    <li>Gabon</li>
+                    <li>Ghana</li>
+                    <li>Lesotho</li>
+                    <li>Madagascar</li>
+                    <li>Malawi</li>
+                    <li>Mozambique</li>
+                    <li>Namibia</li>
+                    <li>Niger</li>
+                    <li>Congo (Rep. of)</li>
+                    <li>Rwanda</li>
+                    <li>Senegal</li>
+                    <li>Somalia</li>
+                    <li>South Africa</li>
+                    <li>Swaziland</li>
+                    <li>Tanzania</li>
+                    <li>Togo</li>
+                    <li>Uganda</li>
+                    <li>Zambia</li>
+                    <li>Zimbabwe</li>
+                    <li>Cape Verde</li>
+                    <li>Ethiopia</li>
+                    <li>Guinea</li>
+                    <li>Guinea-Bissau</li>
+                    <li>Liberia</li>
+                    <li>Mali</li>
+                    <li>Mauritania</li>
+                    <li>Mauritius</li>
+                    <li>Sierra Leone</li>
+                    <li>South Sudan</li>
+                    <li>Sudan</li>
+                </ul>
+            </div>
 
-<button class="accordion">Latin America</button>
-<div class="panel">
- 
-        <ul style="list-style-type:circle;">
-                <li>Bolivia</li>
-                <li>Argentina</li>
-                <li>Brazil</li>
-                <li>Colombia</li>
-                <li>Ecuador</li>
-                <li>Guatemala</li>
-                <li>Mexico</li>
-                <li>Nicaragua</li>
-                <li>Panama</li>
-                <li>Paraguay</li>
-                <li>Peru</li>
-                <li>Belize</li>
-                <li>Chile</li>
-                <li>Costa Rica</li>
-                <li>Dominican Republic</li>
-                <li>El Salvador</li>
-                <li>Guyana</li>
-                <li>Honduras</li>
-                <li>Uruguay</li>
-                <li>Venezuela</li>
-
-</div>
-
-
-<button class="accordion">East Asia and Pacific</button>
-<div class="panel">
-  
-        <ul style="list-style-type:circle;">
-                <li>Cambodia</li>
-                <li>Indonesia</li>   
-                <li>Malaysia</li>
-                <li>Mongolia</li>
-                <li>Myanmar</li>
-                <li>Brunei</li>
-                <li>Laos</li>
-                <li>Papua New Guinea</li>
-                <li>Philippines</li>
-                <li>Thailand</li>
-                <li>Taiwan</li>
-                <li>Indonesia</li>
-</div>
-
-<button class="accordion">MENA</button>
-<div class="panel">
-        <ul style="list-style-type:circle;">
-        <li>Jordan</li>
-        <li>Tunisia</li>
-        <li>Egypt</li>
-        <li>Morocco</li>
-        <li>Oman</li>
-        <li>Saudi Arabia</li>
-        <li>Algeria</li>
-        <li>Djibouti</li>
-        <li>Libya</li>
-        <li>UAE</li>
-</div>
+            <button class="accordion">Latin America</button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Bolivia</li>
+                    <li>Argentina</li>
+                    <li>Brazil</li>
+                    <li>Colombia</li>
+                    <li>Ecuador</li>
+                    <li>Guatemala</li>
+                    <li>Mexico</li>
+                    <li>Nicaragua</li>
+                    <li>Panama</li>
+                    <li>Paraguay</li>
+                    <li>Peru</li>
+                    <li>Belize</li>
+                    <li>Chile</li>
+                    <li>Costa Rica</li>
+                    <li>Dominican Republic</li>
+                    <li>El Salvador</li>
+                    <li>Guyana</li>
+                    <li>Honduras</li>
+                    <li>Uruguay</li>
+                    <li>Venezuela</li>
+                </ul>
+            </div>
 
 
-<button class="accordion">South Asia </button>
-<div class="panel">
-        <ul style="list-style-type:circle;">
-                <li>Bangladesh</li>
-                <li>Pakistan</li>
-                <li>Sri Lanka</li>
-                <li>Afghanistan</li>
-                <li>India</li>
-                <li>Nepal</li>
-</div>
+            <button class="accordion">East Asia and Pacific</button>
+            <div class="panel">
+
+                <ul style="list-style-type:circle;">
+                    <li>Cambodia</li>
+                    <li>Indonesia</li>
+                    <li>Malaysia</li>
+                    <li>Mongolia</li>
+                    <li>Myanmar</li>
+                    <li>Brunei</li>
+                    <li>Laos</li>
+                    <li>Papua New Guinea</li>
+                    <li>Philippines</li>
+                    <li>Thailand</li>
+                    <li>Taiwan</li>
+                    <li>Indonesia</li>
+                </ul>
+            </div>
+
+            <button class="accordion">MENA</button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Jordan</li>
+                    <li>Tunisia</li>
+                    <li>Egypt</li>
+                    <li>Morocco</li>
+                    <li>Oman</li>
+                    <li>Saudi Arabia</li>
+                    <li>Algeria</li>
+                    <li>Djibouti</li>
+                    <li>Libya</li>
+                    <li>UAE</li>
+                </ul>
+            </div>
 
 
-<button class="accordion">Europe and Central Asia </button>
-<div class="panel">
-        <ul style="list-style-type:circle;">
-                <li>Kazakhstan</li>
-                <li>Turkey</li>
-                <li>Ukraine</li>
-                <li>Uzbekistan</li>
-                <li>Cyprus</li>
-                <li> French Guiana</li>
-</div>
+            <button class="accordion">South Asia </button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Bangladesh</li>
+                    <li>Pakistan</li>
+                    <li>Sri Lanka</li>
+                    <li>Afghanistan</li>
+                    <li>India</li>
+                    <li>Nepal</li>
+                </ul>
+            </div>
 
 
-<button class="accordion">North America</button>
-<div class="panel">
-        <ul style="list-style-type:circle;">
-                <li>Canada</li>
-                <li>United States</li>
-</div>
+            <button class="accordion">Europe and Central Asia </button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Kazakhstan</li>
+                    <li>Turkey</li>
+                    <li>Ukraine</li>
+                    <li>Uzbekistan</li>
+                    <li>Cyprus</li>
+                    <li> French Guiana</li>
+                </ul>
+            </div>
 
-<script>
+
+            <button class="accordion">North America</button>
+            <div class="panel">
+                <ul style="list-style-type:circle;">
+                    <li>Canada</li>
+                    <li>United States</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH BAR FUNCTION CODE -->
+    <script>
+        function myFunction() {
+
+            var coveredCountries = ["KENYA", "NIGERIA", "ANGOLA", "BENIN", "BOTSWANA", "BURKINA FASO", "BURUNDI", "CAMEROON", "CHAD", "COTE D'IVOIRE", "CAR", "DRC", "EQUATORIAL GUINEA",
+                "THE GAMBIA", "GABON", "GHANA", "LESOTHO", "MADAGASCAR", "MALAWI", "MOZAMBIQUE", "NAMIBIA", "NIGER", "CONGO (REP. OF)", "Republic of Congo", "RWANDA", "SENEGAL", "SOMALIA",
+                "SOUTH AFRICA", "SWAZILAND", "TANZANIA", "TOGO", "UGANDA", "ZAMBIA", "ZIMBABWE", "CAPE VERDE", "ETHIOPIA", "GUINEA", "GUINEA-BISSAU", "LIBERIA", "MALI", "MAURITANIA",
+                "MAURITIUS", "SIERRA LEONE", "SOUTH SUDAN", "SUDAN", "BOLIVIA", "ARGENTINA", "BRAZIL", "colOMBIA", "ECUADOR", "GUATEMALA", "MEXICO", "NICARAGUA", "PANAMA",
+                "PARAGUAY", "PERU", "BELIZE", "CHILE", "COSTA RICA", "DOMINICAN REPUBLIC", "EL SALVADOR", "GUYANA", "HONDURAS", "URUGUAY", "VENEZUELA", "CAMBODIA", "INDONESIA",
+                "MALAYSIA", "MONGOLIA", "MYANMAR", "BRUNEI", "LAOS", "PAPUA NEW GUINEA", "PHILIPPINES", "THAILAND", "TAIWAN", "INDONESIA", "JORDAN", "TUNISIA", "EGYPT",
+                "MOROCCO", "OMAN", "SAUDI ARABIA", "ALGERIA", "DJIBOUTI", "LIBYA", "UAE", "BANGLADESH", "PAKISTAN", "SRI LANKA", "AFGHANISTAN", "INDIA", "NEPAL", "KAZAKHSTAN",
+                "TURKEY", "UKRAINE", "UZBEKISTAN", "CYPRUS", "FRENCH GUIANA", "CANADA", "UNITED STATES", "US"
+            ];
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            var theButton = document.getElementById("submit");
+            var isCovered = false;
+            theButton.onclick = function() {
+                for (i = 0; i < coveredCountries.length; i++) {
+                    if (filter === coveredCountries[i]) {
+                        isCovered = true;
+                    }
+                }
+
+                if (isCovered) {
+                    alert("COVERED!");
+                } else {
+                    alert("COUNTRY IS NOT COVERED!");
+                    document.getElementById('result')
+                }
+
+            }
+
+        }
+    </script>
+
+    <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
-        
+
         for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight){
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            } 
-          });
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
         }
-        </script>
-        
-<!-- SEARCH BAR FUNCTION CODE -->
-<script>
+    </script>
 
+</body>
 
-function myFunction(){
-
-var coveredCountries = ["KENYA","NIGERIA", "ANGOLA","BENIN", "BOTSWANA","BURKINA FASO","BURUNDI","CAMEROON","CHAD","COTE D'IVOIRE","CAR","DRC","EQUATORIAL GUINEA",
-"THE GAMBIA","GABON","GHANA","LESOTHO","MADAGASCAR","MALAWI","MOZAMBIQUE","NAMIBIA","NIGER","CONGO (REP. OF)", "Republic of Congo","RWANDA","SENEGAL","SOMALIA",
-"SOUTH AFRICA","SWAZILAND", "TANZANIA", "TOGO","UGANDA","ZAMBIA","ZIMBABWE","CAPE VERDE","ETHIOPIA","GUINEA","GUINEA-BISSAU","LIBERIA","MALI","MAURITANIA",
-"MAURITIUS","SIERRA LEONE","SOUTH SUDAN","SUDAN","BOLIVIA", "ARGENTINA", "BRAZIL", "COLOMBIA", "ECUADOR", "GUATEMALA", "MEXICO", "NICARAGUA", "PANAMA",
-"PARAGUAY", "PERU", "BELIZE", "CHILE", "COSTA RICA", "DOMINICAN REPUBLIC","EL SALVADOR", "GUYANA", "HONDURAS", "URUGUAY", "VENEZUELA", "CAMBODIA", "INDONESIA",
-"MALAYSIA", "MONGOLIA", "MYANMAR", "BRUNEI", "LAOS", "PAPUA NEW GUINEA", "PHILIPPINES", "THAILAND", "TAIWAN", "INDONESIA", "JORDAN", "TUNISIA", "EGYPT",
-"MOROCCO", "OMAN", "SAUDI ARABIA", "ALGERIA", "DJIBOUTI", "LIBYA", "UAE","BANGLADESH", "PAKISTAN", "SRI LANKA", "AFGHANISTAN", "INDIA", "NEPAL", "KAZAKHSTAN",
-"TURKEY", "UKRAINE", "UZBEKISTAN", "CYPRUS", "FRENCH GUIANA", "CANADA", "UNITED STATES", "US"];
-input = document.getElementById("myInput");
-filter = input.value.toUpperCase();
-var theButton = document.getElementById("submit");
-var isCovered = false;
-theButton.onclick = function(){
-  for( i = 0; i < coveredCountries.length; i++){
-  if(filter === coveredCountries[i]){
-    isCovered = true;
-  }
-  }
-
-  if(isCovered){
-    alert("COVERED!");
-  }else{
-    alert("COUNTRY IS NOT COVERED!");
-  }
-
-}
-
-}
-
-
-
-</script>
-
-
-  </body>
 </html>
